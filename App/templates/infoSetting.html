@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <title>信息提交</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        img {
+            border: 0;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #666;
+            font: 12px/150% Arial, Verdana, "microsoft yahei";
+        }
+
+        html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        audio, canvas, progress, video {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        a {
+            text-decoration: none;
+            color: #08acee;
+        }
+
+        a:active, a:hover {
+            outline: 0;
+        }
+
+        button {
+            outline: 0;
+        }
+
+        mark {
+            color: #000;
+            background: #ff0;
+        }
+
+        small {
+            font-size: 80%;
+        }
+
+        img {
+            border: 0;
+        }
+
+        button, input, optgroup, select, textarea {
+            margin: 0;
+            font: inherit;
+            color: inherit;
+            outline: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        a {
+            color: #666;
+        }
+
+        a:hover {
+            color: #eee;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        h2, h3 {
+            font-family: "microsoft yahei";
+            font-weight: 100;
+        }
+
+
+        /* ------------------- */
+        ::-moz-placeholder {
+            color: #9fa3a7;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #9fa3a7;
+        }
+
+        :-ms-input-placeholder {
+            color: #9fa3a7;
+        }
+
+
+        .pc-kk-form {
+            padding: 15px 20px;
+        }
+
+        .pc-kk-form-list {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            height: 44px;
+            line-height: 44px;
+            margin-bottom: 10px;
+        }
+
+        .pc-kk-form-list input {
+            width: 100%;
+            border: none;
+            background: none;
+            color: #9fa3a7;
+            font-size: 14px;
+            height: 36px;
+            padding: 4px 10px;
+        }
+
+        .pc-kk-form-list textarea {
+            background: none;
+            border: none;
+            height: 60px;
+            padding: 10px;
+            resize: none;
+            width: 94%;
+            line-height: 22px;
+            color: #9fa3a7;
+            font-size: 14px;
+        }
+
+        .nice-select {
+            position: relative;
+            background: #fff url(../static/images/a2.jpg) no-repeat right center;
+            background-size: 18px;
+            width: 47%;
+            float: left;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            height: 44px;
+            line-height: 44px;
+        }
+
+        .nice-select ul {
+            width: 100%;
+            display: none;
+            position: absolute;
+            left: -1px;
+            top: 44px;
+            overflow: hidden;
+            background-color: #fff;
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #b9bcbf;
+            z-index: 9999;
+            border-radius: 5px;
+
+        }
+
+        .nice-select ul li {
+            padding-left: 10px;
+        }
+
+        .nice-select ul li:hover {
+            background: #f8f4f4;
+        }
+
+        .pc-kk-form-list-clear {
+            background: none;
+            border: none;
+        }
+
+        .pc-kk-form-btn button {
+            background: #ec5224;
+            color: #fff;
+            border: none;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body class="login-bg">
+<h3>该信息将会用于通行证生成请根据需要填写，不一定需要真实</h3>
+<div class="login-contain">
+    <div class="pc-kk-form">
+        <div class="pc-kk-form-list">
+            <input id="name" name="name" type="text" placeholder="姓名">
+        </div>
+        <div class="pc-kk-form-list">
+            <input id="name" name="stuCode" type="text" placeholder="学号">
+        </div>
+        <div class="pc-kk-form-list pc-kk-form-list-clear">
+            <div class="nice-select" name="nice-select" style="float:right;background-color:#FFFFFF; color:black">
+                <input name="sex" id="sex" type="text" value="" placeholder="性别" readonly>
+                <ul>
+                    <li data-value="male">男</li>
+                    <li data-value="female">女</li>
+                </ul>
+
+            </div>
+            <div class="nice-select" name="nice-select" style="background-color:#FFFFFF; color:black">
+                <input name="idtype" id="idtype" type="text" placeholder="身份类别" value="" readonly>
+                <ul>
+                    <li data-value="学生">学生</li>
+                    <li data-value="教职工">教职工</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="pc-kk-form-list">
+            <input name="email" type="email" placeholder="邮箱，用于找回密码">
+        </div>
+        <div class="pc-kk-form-list">
+            <input name="bj" id="bj" type="text" placeholder="班级代码">
+        </div>
+        <div class="pc-kk-form-list">
+            <input name="zy" id="zy" type="text" placeholder="专业">
+        </div>
+        <div class="pc-kk-form-list pc-kk-form-list-clear">
+            <div class="nice-select" name="nice-select" style="background-color:#FFFFFF; color:black">
+                <input id="clcc" name="clcc" type="text" placeholder="学历等级" value="" readonly>
+                <ul>
+                    <li data-value="本科">本科</li>
+                    <li data-value="研究生">研究生</li>
+
+                </ul>
+
+            </div>
+            <div class="nice-select" name="nice-select" style="float:right;background-color:#FFFFFF; color:black">
+                <input type="text" name="bm" id="bm" placeholder="学院" value="" readonly>
+                <ul>
+                    <li data-value="计算机科学与工程学院">计算机科学与工程学院</li>
+                    <li data-value="理学院">理学院</li>
+                    <li data-value="外国语学院">外国语学院</li>
+                    <li data-value="药学与生物工程学院">药学与生物工程学院</li>
+                    <li data-value="重庆知识产权学院">重庆知识产权学院</li>
+                    <li data-value="材料科学与工程学院">材料科学与工程学院</li>
+                    <li data-value="车辆工程学院">车辆工程学院</li>
+                    <li data-value="电气与电子工程学院">电气与电子工程学院</li>
+                    <li data-value="管理学院">管理学院</li>
+                    <li data-value="化学化工学院">化学化工学院</li>
+                    <li data-value="会计学院">会计学院</li>
+                    <li data-value="机械工程学院">机械工程学院</li>
+                    <li data-value="经济金融学院">经济金融学院</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="pc-kk-form-btn">
+            <button id="submit">提交</button>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/jquery1.js"></script>
+<script>
+    $('#submit').click(function () {
+        console.log("submit")
+        if ($('input[name="name"]').val() === "" && $('input[name="sex"]').val() === "" && $('input[name="stuCode"]').val() === "" && $('input[name="idtype"]').val() === "" && $('input[name="email"]').val() === "" && $('input[name="bj"]').val() === "" && $('input[name="zy"]').val() === "" && $('input[name="clcc"]').val() === "" && $('input[name="bm"]').val() === ""
+        ) {
+            alert("请完成表单信息")
+            return
+        }
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            url: "/apis/InfSetting",//url
+            data: JSON.stringify({
+                name: $('input[name="name"]').val(),
+                sex: $('input[name="sex"]').val(),
+                stuCode: $('input[name="stuCode"]').val(),
+                idtype: $('input[name="idtype"]').val(),
+                email: $('input[name="email"]').val(),
+                bj: $('input[name="bj"]').val(),
+                zy: $('input[name="zy"]').val(),
+                clcc: $('input[name="clcc"]').val(),
+                bm: $('input[name="bm"]').val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                {#$('#result').text(data);#}
+                if (data.code !== 200) {
+                    alert(data.msg)
+                } else {
+                    $(window).attr('location', '/');
+                }
+            } // 注意不要在此行增加逗号
+        });
+    });
+
+
+    $(function () {
+        $(window).resize();
+    });
+    //js设置居中
+    $(window).resize(function () {
+        $(".login-contain").css({
+            position: "absolute",
+            left: ($(window).width() - $(".login-contain").outerWidth()) / 2,
+            top: ($(window).height() - $(".login-contain").outerHeight()) / 2
+        });
+    });
+
+
+    $('[name="nice-select"]').click(function (e) {
+
+        $('[name="nice-select"]').find('ul').hide();
+
+        $(this).find('ul').show();
+
+        e.stopPropagation();
+
+    });
+
+    $('[name="nice-select"] li').hover(function (e) {
+
+        $(this).toggleClass('on');
+
+        e.stopPropagation();
+
+    });
+
+    $('[name="nice-select"] li').click(function (e) {
+
+        var val = $(this).text();
+
+        $(this).parents('[name="nice-select"]').find('input').val(val);
+
+        $('[name="nice-select"] ul').hide();
+
+        e.stopPropagation();
+
+    });
+
+    $(document).click(function () {
+
+        $('[name="nice-select"] ul').hide();
+
+    });
+
+</script>
+
+</body>
+</html>

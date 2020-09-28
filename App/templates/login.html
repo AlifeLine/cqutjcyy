@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="login-bg">
+<div class="login-contain">
+    <div class="login-header">
+        <p>欢迎登录</p>
+    </div>
+    <div class="form-group">
+        <div class="form-item">
+            <label for="username">
+                <img src="../static/images/user.png">
+            </label>
+            <input id="username" type="text" name="username" placeholder="请输入账号">
+        </div>
+        <div class="form-item">
+            <label for="password">
+                <img src="../static/images/password.png" alt="">
+            </label>
+            <input id="password" type="password" name="password" placeholder="请输入密码">
+        </div>
+    </div>
+    <div class="button-group">
+        <button class="login-btn" id="doLogin">登录</button>
+        <button class="login-btn" id="doSign">注册</button>
+    </div>
+</div>
+
+<script src="../static/js/jquery.js"></script>
+<script>
+    $(function () {
+        $(window).resize();
+    });
+    //js设置居中
+    $(window).resize(function () {
+        $(".login-contain").css({
+            position: "absolute",
+            left: ($(window).width() - $(".login-contain").outerWidth()) / 2,
+            top: ($(window).height() - $(".login-contain").outerHeight()) / 2
+        });
+    });
+    $('#doLogin').click(function () {
+        console.log("login")
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            url: "/apis/login",//url
+            data: JSON.stringify({
+                username: $('input[name="username"]').val(),
+                password: $('input[name="password"]').val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                {#$('#result').text(data);#}
+                if (data.code !== 200) {
+                    alert(data.msg)
+                } else {
+                    $(window).attr('location', '/');
+                }
+            } // 注意不要在此行增加逗号
+        });
+    });
+    $('#doSign').click(function () {
+        console.log("signin")
+        $(window).attr('location', '/signin');
+    });
+</script>
+
+</body>
+</html>

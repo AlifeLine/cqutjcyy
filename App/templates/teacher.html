@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1,
+minimum-scale=1,
+maximum-scale=1,
+user-scalable=no"/>
+    <title>我的通行证</title>
+    <link href="../static/css.css" rel="stylesheet"/>
+
+    <script src="../static/vue.js"></script>
+
+    <style>
+        html,
+        body {
+            background-color: white;
+        }
+
+        .txz {
+            background-color: lightseagreen;
+            color: white;
+        }
+
+        .txxx {
+            color: orange;
+            font-size: 18px;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="col-12" style="margin:0px!important;padding:0px!important;border:0px!important;">
+    <div v-if="hasTxz" class="txz"
+         style="margin:15px!important;padding:0px!important;border:1px solid #eee!important; border-radius:3px;">
+        <div v-if="userInfo.rylxmc=='教师'" class="col-12" style="padding:15px;">
+            <label class="col-4">工号</label><label class="col-8">{
+            {
+            userInfo.yhbh
+            }
+            }</label>
+            <label class="col-4">姓名</label><label class="col-8">{
+            {
+            userInfo.xm
+            }
+            }</label>
+            <label class="col-4">性别</label><label class="col-8">{
+            {
+            userInfo.xb
+            }
+            }</label>
+            <label class="col-4">身份类型</label><label class="col-8">{
+            {
+            userInfo.rylxmc
+            }
+            }</label>
+            <label class="col-4">部门</label><label class="col-8">{
+            {
+            userInfo.xybcmc
+            }
+            }</label>
+            <label class="col-4">证件号码</label><label class="col-8">{
+            {
+            userInfo.Sfzjh
+            }
+            }</label>
+
+        </div>
+        <div v-else-if="userInfo.rylxmc=='学生'" class="col-12" style="padding:15px;">
+            <label class="col-4">学号</label><label class="col-8">{
+            {
+            userInfo.yhbh
+            }
+            }</label>
+            <label class="col-4">姓名</label><label class="col-8">{
+            {
+            userInfo.xm
+            }
+            }</label>
+            <label class="col-4">性别</label><label class="col-8">{
+            {
+            userInfo.xb
+            }
+            }</label>
+            <label class="col-4">身份类型</label><label class="col-8">{
+            {
+            userInfo.rylxmc
+            }
+            }</label>
+            <label class="col-4">部门</label><label class="col-8">{
+            {
+            userInfo.xybcmc
+            }
+            }</label>
+            <label class="col-4">专业</label><label class="col-8">{
+            {
+            userInfo.zymc
+            }
+            }</label>
+            <label class="col-4">班级</label><label class="col-8">{
+            {
+            userInfo.bjmc
+            }
+            }</label>
+            <label class="col-4">学历层次</label><label class="col-8">{
+            {
+            userInfo.xlcc
+            }
+            }</label>
+            <label class="col-4">证件号码</label><label class="col-8">{
+            {
+            userInfo.Sfzjh
+            }
+            }</label>
+        </div>
+        <div class="col-12" style="background-color:white;height:10px;border:none!important"></div>
+        <div class="col-12" style="padding:15px;">
+            <label class="col-4">通行岗亭</label><label class="col-8 txxx">{
+            {
+            gtmc
+            }
+            }</label>
+            <label class="col-4">通行事件</label><label class="col-8 txxx">{
+            {
+            jclx
+            }
+            }</label>
+        </div>
+    </div>
+</div>
+<script>
+    var obj = '';
+    var app = new Vue({
+
+        el: '#app',
+
+        data: {
+
+            userInfo: {},
+
+            gtmc: '二号门进出（花溪）',
+
+            jclx: '进入',
+
+            hasTxz: false,
+
+
+        },
+
+        created: function () {
+
+            try {
+
+                var home = this;
+                this.$http.post('/ry/grxx').then(function (res) {
+
+                        if (res.body.IsSuccessful) {
+
+                            home.userInfo = res.body.Data;
+                            home.hasTxz = true;
+
+                        }
+
+                    },
+                    function (res) {
+
+                        console.log(res.status);
+
+                    });
+
+            } catch (e) {
+
+
+            }
+
+        },
+
+
+    })
+
+</script>
+</body>
+</html>

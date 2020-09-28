@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <title>注册</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="login-bg">
+<div class="login-contain">
+    <div class="login-header">
+        <p>{{message}}</p>
+    </div>
+</div>
+
+<script src="../static/js/jquery.js"></script>
+<script>
+    $(function(){
+        $(window).resize();
+    });
+    //js设置居中
+    $(window).resize(function(){
+        $(".login-contain").css({
+            position: "absolute",
+            left: ($(window).width() - $(".login-contain").outerWidth())/2,
+            top: ($(window).height() - $(".login-contain").outerHeight())/2
+        });
+    });
+</script>
+
+</body>
+</html>

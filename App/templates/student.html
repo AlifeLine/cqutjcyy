@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1,
+minimum-scale=1,
+maximum-scale=1,
+user-scalable=no"/>
+    <title>我的通行证</title>
+    <link href="../static/css.css" rel="stylesheet"/>
+
+    <script src="../static/vue.js"></script>
+
+    <style>
+        html,
+        body {
+            background-color: white;
+        }
+
+        .txz {
+            background-color: lightseagreen;
+            color: white;
+        }
+
+        .txxx {
+            color: orange;
+            font-size: 18px;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="col-12" style="margin:0!important;padding:0!important;border:0!important;">
+    <div class="txz"
+         style="margin:15px!important;padding:0!important;border:1px solid #eee!important; border-radius:3px;">
+        <div class="col-12" style="padding:15px;">
+            <label class="col-4">学号 </label><label class="col-8">
+            {{ stuCode }}
+        </label>
+            <label class="col-4">姓名</label><label class="col-8">
+            {{ stuname }}
+        </label>
+            <label class="col-4">性别</label><label class="col-8">
+            {{ sex }}
+        </label>
+            <label class="col-4">身份类型</label><label class="col-8">
+            {{ type }}
+        </label>
+            <label class="col-4">部门</label><label class="col-8">
+            {{ mb }}
+        </label>
+            <label class="col-4">专业</label><label class="col-8">
+            {{ zy }}
+        </label>
+            <label class="col-4">班级</label><label class="col-8">
+            {{ bj }}
+        </label>
+            <label class="col-4">学历层次</label><label class="col-8">
+            {{ cc }}
+        </label>
+            <label class="col-4">证件号码</label><label class="col-8">
+            {{ sfzhm }}
+            <br>
+        </label>
+        </div>
+        <div class="col-12" style="background-color:white;height:10px;border:none!important"></div>
+        <div class="col-12" style="padding:15px;">
+            <label class="col-4">通行岗亭</label><label class="col-8 txxx">
+            {{ gxgt }}
+        </label>
+            <label class="col-4">通行事件</label><label class="col-8 txxx">
+            {{ txsj }}
+        </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
